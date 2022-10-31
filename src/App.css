@@ -1,38 +1,264 @@
-.App {
-  text-align: center;
+.container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./images/bg-main-desktop.png);
+    background-repeat: no-repeat;
+    background-color: whitesmoke;   
+}
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+.card-design{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: white;
+}
+.card-front-detail, .card-back-detail{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    width: 350px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+}
+.card-front-detail{
+    background-image: url(./images/bg-card-front.png);
+    position: relative;
+    top: -50px;
+    left: -150px;
+}
+.card-back-detail{
+    background-image: url(./images/bg-card-back.png);
+    position: relative;
+    left: -25px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* crad detail */
+
+.card-logo{
+    position: relative;
+    left: 25px; 
+    top: 10px;
+    transform: scale(0.9);
+}
+.card-front-number{
+    position: absolute;
+    bottom: 60px;
+    left: 25px;
+    font-size: 30px;
+}
+.name-date{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 25px;
+    position: relative;
+    top: 110px;
+}
+.card-back-cvc{
+    position: absolute;
+    top: 45%;
+    right: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* form style */
+.detail-design{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.form-ele{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+label{
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    font-size: 14px;
+
+}
+input{
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+input::placeholder{
+
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.4);
+}
+ input:focus
+{
+    border: 2px solid rgba(0, 0, 0, 0.8);
+}
+input:hover{
+cursor: pointer;
+}
+.input-error{
+    border: 1px solid red !important;
+}
+.hiddden{
+    height: 0 !important;
+}
+.date-cvc{
+    display: flex;
+    gap: 30px;
+}
+.date-input{
+    display: flex;
+    gap: 5px;
+}
+.date-input input{
+    
+    width: 80px;
+}
+.cvc-detail{
+    display: flex;
+    flex-direction: column;
+}
+button{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+button:hover{
+    filter: brightness(80%);
+    transform: scale(0.99);
+}
+.error{
+    color: red;
+    font-size: 14px;
+    position: relative;
+    top: -8px;
+}
+.msg{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+}
+.msg img{
+    transform: scale(0.8);
+}
+.msg span{
+    font-size: 14px;
+}
+.msg button{
+    width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* animation */
+.shake{
+    animation: shake 0.5s cubic-bezier(0.36,0.07,0.19,0.97) both;
+}
+@keyframes shake {
+
+10%,90% {
+    transform:translate3d(-1px,0,0);
+    background-color:red;
+}
+20%,80% {
+    transform:translate3d(2px,0,0);
+    
+}
+30%,40%, 50% {
+    transform:translate3d(-4px,0,0);
+    
+}
+60%,40% {
+    transform:translate3d(4px,0,0);
+    
 }
 
-.App-link {
-  color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* media queries */
+
+@media screen and (max-width: 420px) {
+    .container{
+       /* min-height: 100vh; */
+        background-image: url(./images/bg-main-mobile.png);
+       overflow-x: hidden;
+     
+       background-size: contain;
+    }
+    .card{
+        flex-direction:column;
+    }
+    .card-design{
+       
+        flex-direction: row-reverse;
+       
+    }
+    .card-front-detail, .card-back-detail{
+       
+        height: 150px;
+        width: 300px;
+      
+        border-radius: 10px;
+    }
+    .card-front-detail{
+        
+        top: -50px;
+        left: -170px;
+        z-index: 1;
+        box-shadow: 0 3px 25px 5px rgba(0, 0, 0, 0.3);
+    }
+    .card-back-detail{
+       
+       top:-135px;
+        left: 170px;
+    }
+    /* crad detail */
+    
+    .card-logo{
+        position: relative;
+        left: 10px; 
+        top: 10px;
+        transform: scale(0.7);
+    }
+    .card-front-number{
+        position: absolute;
+        bottom: 50px;
+        left: 25px;
+        font-size: 22px;
+    }
+    .name-date{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 25px;
+        position: relative;
+        top: 60px;
+    }
+    .card-back-cvc{
+        position: absolute;
+        top: 45%;
+        right: 50px;
+    }
 }
